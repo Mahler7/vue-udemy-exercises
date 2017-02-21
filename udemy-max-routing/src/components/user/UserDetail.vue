@@ -25,6 +25,17 @@
           hash: '#data' 
         }
       }
+    },
+    // doesnt have access to this
+    beforeRouteEnter: function(to, from, next){
+      if (true){
+        next();
+      } else {
+        next(false);
+      }
+      // next(vm => { access to this if needed
+      //   vm.link
+      // });
     }
   }
 </script>
