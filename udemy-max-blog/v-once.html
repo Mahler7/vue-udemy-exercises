@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>VueJS</title>
+  <link rel="stylesheet" href="">
+  <script src="vue.js"></script>
+</head>
+
+<div id="app">
+  <h1 v-once >{{ greeting }}</h1>
+  <p>{{ sayGreeting() }}</p>
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      greeting: "Hello World!",
+    },
+    methods: {
+      sayGreeting: function(){
+        this.greeting = "Greetings";
+        return this.greeting
+      }
+    }
+  })
+</script>

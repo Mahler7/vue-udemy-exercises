@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>VueJS</title>
+  <link rel="stylesheet" href="">
+  <script src="vue.js"></script>
+</head>
+
+<div id="app">
+  <div class="boxes" @click="changeColor = !changeColor" :class="{lightblue: changeColor}"></div>
+  <div class="boxes" @click="changeColor = !changeColor" :class="{green: changeColor}"></div>
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      changeColor: false,
+    }
+  })
+</script>
+
+<style>
+  .boxes {
+    width: 200px;
+    height: 200px;
+    background-color: gray;
+    display: inline-block;
+    margin: 20px;
+  }
+
+  .lightblue {
+    background-color: lightblue;
+  }
+
+  .green {
+    background-color: green;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+</style>
+

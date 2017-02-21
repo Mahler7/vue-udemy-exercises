@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>VueJS</title>
+  <link rel="stylesheet" href="">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="vue.js"></script>
+</head>
+
+<div id="app">
+  <h1>Are You A Success?</h1>
+  <button class="btn btn-success" @click="toggleSuccess">Display Success!</button>
+  <div v-if="showSuccess">
+    <h1>YES!!!!!!!!</h1>
+    <p>You're a success</p>
+  </div>
+  <div v-else>
+     <h1>NO!!!!!!!</h1>
+     <p>You're not a success</p>
+  </div>
+  <div v-show="showSuccess">
+    <h1>Show</h1>
+    <p>Success</p>
+  </div>
+  
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      showSuccess: false
+    },
+    methods: {
+      toggleSuccess: function(){
+        this.showSuccess = !this.showSuccess
+      }
+    }
+  })
+</script>

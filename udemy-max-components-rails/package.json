@@ -1,0 +1,19 @@
+{
+  "name": "something",
+  "dependencies": {
+    "browserify": "~13.1.1",
+    "browserify-incremental": "^3.1.1",
+    "babelify": "^7.3",
+    "vue": "^2.1.6",
+    "vue-template-compiler": "^2.1.6",
+    "vue-loader": "^10.0.2",
+    "vue-html_loader": "1.2.3"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "devDependencies": {
+    "babelify": "^7.3.0"
+  }
+}

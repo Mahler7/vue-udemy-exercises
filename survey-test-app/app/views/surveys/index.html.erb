@@ -1,0 +1,31 @@
+<div id="app">
+  <button @click="toggleNewSurvey">New Survey</button>
+
+  <h2>Survey 1</h2>
+  <div v-if="newSurveyDisplay" id="new-survey-form">
+    <h1>Create New Survey</h1>
+    <label>Survey Name: </label>
+    <input v-model="survey.name">
+    <label>Start Time: </label>
+    <input v-model="survey.start_time">
+    <label>End Time: </label>
+    <input v-model="survey.end_time">
+    <button @click="submitNewSurvey">Submit</button>
+  </div>
+
+  <h2>Poll</h2>
+  <div v-if="newSurveyDisplay" id="new-survey-form">
+    <h1>Create New Survey</h1>
+    <label>Survey Name: </label>
+    <input v-model="poll.name">
+    <label>Start Time: </label>
+    <input v-model="poll.start_time">
+    <label>End Time: </label>
+    <input v-model="poll.end_time">
+    <button @click="submitNewPoll">Submit</button>
+  </div>
+  <div id="poll-index">
+    <h1>Poll Index</h1>
+    <p v-for="poll in polls">{{ poll.name }}&nbsp;{{ poll.start_time }}&nbsp;{{ poll.end_time }}</p>
+  </div>
+</div>

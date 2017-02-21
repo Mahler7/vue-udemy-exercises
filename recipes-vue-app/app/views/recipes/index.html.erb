@@ -1,0 +1,69 @@
+<div id="app">
+  <!-- <div id="message-test">
+    {{ message }}
+  </div>
+  <div class="form">
+    <div class="form-fields">
+      <label>Name: </label>
+      <input label="recipeName" v-model="recipeName">
+    </div>
+    <div class="form-fields">
+      <label>Chef: </label>
+      <input label="recipeChef" v-model="recipeChef">
+    </div>
+    <div class="form-fields">
+      <label>Cooktime: </label>
+      <input type="time" label="recipeCooktime" v-model="recipeCooktime">
+    </div>
+    <div class="form-fields">
+      <label>Serves: </label>
+      <input label="recipeAmount" v-model="recipeAmount">
+    </div>
+    <div class="form-fields">
+      <label>Description: </label>
+      <textarea label="recipeDescription" v-model="recipeDescription"></textarea>
+    </div>
+    <div class="form-fields">
+      <label>Favorite: </label>
+      <input type="checkbox" label="recipeFavorite" v-model="recipeFavorite">
+    </div>
+    <button @click="createRecipe">Create Recipe</button>
+  </div>
+  <div class="recipe-index">
+    <recipes :recipeName>
+    </recipes>
+  </div> -->
+  <!-- <h2>Vue Test</h2> -->
+  <!-- <div class="form-fields">
+    <label>Name: </label>
+    <input type="text" v-model="recipeName">
+  </div> -->
+
+<!--   <h2>Vue Display Test</h2>
+  <recipes>
+    <script id="recipes-index" type="text/template">
+      <div>
+        {{ recipeName }}
+      </div>
+      <input type="text" v-model="recipeName">
+    </script>
+  </recipes> -->
+<!-- {{ recipe.name }} -->
+  <h1>Vue Ajax Test</h1>
+
+  
+ <!--   // <div>
+   //  <input type="text" v-model="recipe">
+   //  <button @click="newRecipe"></button>
+   // </div> -->
+   <recipes id="recipe-template">
+    <form v-on:submit="handleRecipe">
+      <input type="text">
+      <input type="submit" value="submit recipe">
+    </form>
+   </recipes>
+  
+  
+
+</div>
+<h1>Index Test</h1>

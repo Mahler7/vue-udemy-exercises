@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>VueJS</title>
+  <link rel="stylesheet" href="">
+  <script src="vue.js"></script>
+</head>
+
+<div id="app">
+  <button @click="countNumbers">Click to Count</button>
+  <p>{{ counter }}</p>
+  <div>
+    <label>Key Up Event Listener Test</label>
+    <input type="text" @keyup="keyMessage">
+  </div>
+  <div>
+    <label>Key Down Event Listener Test</label>
+    <input type="text" @keydown="keyMessage">
+  </div>
+  <div>
+    <label>Key Up Enter Modifier Event Listener Test</label>
+    <input type="text" @keyup.enter="keyMessage">
+  </div>
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      counter: 0,
+    },
+    methods: {
+      countNumbers: function(){
+        this.counter++;
+      },
+      keyMessage: function(){
+        alert("Key Event Listener Triggered");
+      }
+    }
+  })
+</script>

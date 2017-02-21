@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>VueJS</title>
+  <link rel="stylesheet" href="">
+  <script src="vue.js"></script>
+</head>
+
+<div id="app">
+  <input type="text" v-on:input="changeTitle">
+  <h1 v-once>{{ title }} </h1>
+  <p>{{ sayHello() }} <a v-bind:href="link">Google</a></p>
+  <p>{{ returnTitle() }}</p>
+  <hr>
+  <p v-html="finishedLink"></p>
+  <hr>
+  <button v-on:click="increase(2, $event)">Increase Count</button>
+  <p>{{ counter }}</p>
+  <hr>
+  <p v-on:mousemove="updateCoordinates">
+    Coordinates: {{ x }} / {{ y }}
+    <span v-on:mousemove="dummy">Dead Spot</span>
+  </p>
+  <p v-on:mousemove="updateCoordinates">
+    Coordinates: {{ x }} / {{ y }}
+    <span v-on:mousemove.stop="">Event Modifying Dead Spot</span>
+  </p>
+  <hr>
+  <input type="text" v-on:keyup.enter.space="alertMe">
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      title: 'Hello World!',
+      link: 'http://google.com',
+      finishedLink: '<a href="http://google.com">Google</a>',
+      counter: 0,
+      x: 0,
+      y: 0
+    },
+    methods: {
+      changeTitle: function(event){
+        this.title = event.target.value;
+      },
+      returnTitle: function(){
+        return this.title;
+      },
+      sayHello: function(){
+        return 'Hello!';
+      },
+      increase: function(step, event){
+        this.counter += step;
+      },
+      updateCoordinates: function(event){
+        this.x = event.clientX
+        this.y = event.clientY
+      },
+      dummy: function(event){
+        event.stopPropagation();
+      },
+      alertMe: function(){
+        alert("Alert!");
+      }
+    }
+  })
+</script>

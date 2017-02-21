@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>VueJS</title>
+  <link rel="stylesheet" href="">
+  <script src="vue.js"></script>
+</head>
+
+<div id="app">
+  <p>{{ greeting }} <a v-bind:href="link">My Website</a></p>
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      greeting: "Hello World!",
+      link: "http://jjprogramming.wordpress.com"
+    }
+  })
+</script>

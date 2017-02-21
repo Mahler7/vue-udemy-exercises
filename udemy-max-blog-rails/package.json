@@ -1,0 +1,22 @@
+{
+  "name": "udemy-max-blog-rails",
+  "version": "1.0.0",
+  "description": "browserify",
+  "main": "index.js",
+  "dependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
+    "browserify": "^9.0.8",
+    "browserify-incremental": "^3.1.1",
+    "reactify": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "browserify"
+  ],
+  "author": "udemy-max-blog-rails",
+  "license": "ISC"
+}

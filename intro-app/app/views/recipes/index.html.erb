@@ -1,0 +1,218 @@
+<div id="app">
+  <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+  <p>{{ message }}</p>
+  <span v-once>This will never change: {{ message }}</span>
+  <p><span v-bind:title="message2">
+    Hover your mouse over me for a few seconds to see my dynamically bound title!
+  </span></p>
+  <p v-if="seen">Now you see me</p>
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ol>
+  <p>{{ message3 }}</p>
+  <button v-on:click="reverseMessage">Reverse Message</button>
+  <p>{{ message4 }}</p>
+  <input v-model="message4">
+  <br>
+  <label>Add To Do</label>
+  <input v-model="newToDo">
+  <button @click="addTodos">Submit</button>
+  <button @click="toggleMessage">Toggle Message</button>
+
+  <h1>Syntax</h1>
+  {{ number + 1 }}
+  {{ ok ? 'YES' : 'NO' }}
+  {{ message.split('').reverse().join('') }}
+  <div v-bind:id="'list-' + id"></div>
+
+  <h1>Filters</h1>
+  {{ message5 | capitalize }}
+
+  <h1>Computed Properties and Watchers</h1>
+  <p>Computed Property: {{ fullName }}</p>
+  <p>
+    Watcher: Ask a yes/no question:
+    <input v-model="question">
+  </p>
+  <p>{{ answer }}</p>
+
+  <h1>Class and Style Bindings</h1>
+  <div class="static"
+    v-bind:class="{ active: isActive, 'text-danger': hasError }">
+    <p>Test 1</p>
+  </div>
+  <div v-bind:class="classObject">
+    <p>Test 2</p>
+  </div>
+  <div v-bind:style="styleObject">
+    <p>Inline Styling Test</p>
+  </div>
+  <div v-bind:style="[styleObject, styleObject2]">
+    <p>Array Inline Styling Test</p>
+  </div>
+  <h1>List Rendering</h1>
+  <p>List of Items With Index: </p>
+  <li v-for="(item, index) in items">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
+  <p>Template Tag</p>
+  <template v-for="item in items">
+    <li>{{ item.message }}</li>
+    <li class="divider"></li>
+  </template>
+  <p>List of Items As Object</p>
+  <li v-for="value in object">
+    {{ value }}
+  </li>
+  <p>List of Objects With Index and Key (value, key, index): </p>
+  <div v-for="(value, key, index) in object">
+    {{ index }}. {{ key }} : {{ value }}
+  </div>
+  <p>List of n numbers: </p>
+  <div>
+    <span v-for="n in 10">{{ n }}</span>
+  </div>
+  <p>Key</p>
+  <div v-for="item in items" :key="item.id">
+  <!-- content -->
+  </div>
+  
+  <h1>Display Filter</h1>
+  <li v-for="n in evenNumbers">{{ n }}</li>
+
+  <h1>Event Handling</h1>
+  <button v-on:click="counter += 1">Add 1</button>
+  <p>The button above has been clicked {{ counter }} times.</p>
+  <button v-on:click="greet">Greet</button>
+  <button v-on:click="say('hi')">Say hi</button>
+  <button v-on:click="say('what')">Say what</button>
+  <button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+  
+  <h1>Form Input Bindings</h1>
+  <input v-model="message" placeholder="edit me">
+  <p>Message is: {{ message }}</p>
+  <span>Multiline message is:</span>
+  <p>{{ message }}</p>
+  <br>
+  <textarea v-model="message" placeholder="add multiple lines"></textarea>
+  <br>
+  <input type="checkbox" id="checkbox" v-model="checked">
+  <label for="checkbox">{{ checked }}</label>
+  <br>
+  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+  <label for="jack">Jack</label>
+  <input type="checkbox" id="john" value="John" v-model="checkedNames">
+  <label for="john">John</label>
+  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+  <label for="mike">Mike</label>
+  <br>
+  <span>Checked names: {{ checkedNames }}</span>
+  <br>
+  <input type="radio" id="one" value="One" v-model="picked">
+  <label for="one">One</label>
+  <br>
+  <input type="radio" id="two" value="Two" v-model="picked">
+  <label for="two">Two</label>
+  <br>
+  <span>Picked: {{ picked }}</span>
+  <p>Single Select</p>
+  <select v-model="selected">
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <span>Selected: {{ selected }}</span>
+  <br>
+  <p>Multiple Select</p>
+  <select v-model="selected2" multiple>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <br>
+  <span>Selected: {{ selected2 }}</span>
+  <p>Dynamic Select</p>
+  <select v-model="selected3">
+    <option v-for="option in options" v-bind:value="option.value">
+      {{ option.text }}
+    </option>
+  </select>
+  <span>Selected: {{ selected3 }}</span>
+
+  <h1>Components</h1>
+
+  <ol>
+    <task-item v-for="task in tasks" v-bind:task="task"></task-item>
+  </ol>
+  <h5>Child Variable Outside New Vue Called By Component</h5>
+  <my-component></my-component>
+  <h5>Table and Is Work Around</h5>
+  <table>
+    <tr is="my-row"></tr>
+  </table>
+  <p>Component Data Must Be A Function Updates All Numbers</p>
+  <simple-counter></simple-counter>
+  <simple-counter></simple-counter>
+  <simple-counter></simple-counter>
+  <p>Component Data Must Be A Function Updates Individual Numbers</p>
+  <simple-counter2></simple-counter2>
+  <simple-counter2></simple-counter2>
+  <simple-counter2></simple-counter2>
+  <p>Dynamic Props</p>
+  <div>
+    <input v-model="parentMsg">
+    <br>
+    <child3 v-bind:my-message="parentMsg"></child3>
+  </div>
+  <child3 :my-message="parentMsg"></child3>
+  <p>Passing Prop to Child</p>
+  <child message="hello!"></child>
+  <p>Camel to Kebab Case</p>
+  <child2 my-message="say something!"></child2>
+  <p>Pass Number From Parent To Child</p>
+  <comp v-bind:some-number="1"></comp>
+  <h5>Custom Events $on and $emit</h5>
+  <p>{{ total }}</p>
+  <button-counter v-on:increment="incrementTotal"></button-counter>
+  <button-counter v-on:increment="incrementTotal"></button-counter>
+  <my-component v-on:click.native="doTheThing"></my-component> <!-- Listens to native event -->
+  <p>V-Model Testing</p>
+  <p>{{ message }}</p>
+  <my-input
+    label="Message"
+    v-model="message"
+  ></my-input>
+  
+  <h1 slot="header">Here might be a page title</h1>
+  <p>A paragraph for the main content.</p>
+  <p>And another one.</p>
+  <p slot="footer">Here's some contact info</p>
+  
+  <div class="container">
+  <header>
+    <slot name="header"></slot>
+  </header>
+  <main>
+    <slot></slot>
+  </main>
+  <footer>
+    <slot name="footer"></slot>
+  </footer>
+</div>
+  
+</div>
+
+<h2>Misc.</h2>
+<div id="app-2">
+  <p v-if="seen2">Please go away</p>
+</div>
+
+<h1>Slot Test</h1>
+
+
+
+
+
